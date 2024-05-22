@@ -1,0 +1,5 @@
+res://Scenes/flower.tscn
+res://Scripts/flower.gd
+res://Scenes/level.tscn
+res://Scenes/player.tscn
+res://Scenes/platform.tscn

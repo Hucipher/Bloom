@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://ctg2c82o2270g"]
+
+[ext_resource type="Script" path="res://Scripts/bee.gd" id="1_gw1gc"]
+[ext_resource type="Texture2D" uid="uid://crpikbkimfyu8" path="res://Bee-Sheet.png" id="1_neqkj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ylm0w"]
+radius = 9.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ioswx"]
+atlas = ExtResource("1_neqkj")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6olrd"]
+atlas = ExtResource("1_neqkj")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snkdq"]
+atlas = ExtResource("1_neqkj")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mp3q"]
+atlas = ExtResource("1_neqkj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ji3g5"]
+atlas = ExtResource("1_neqkj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34jmf"]
+atlas = ExtResource("1_neqkj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_by5vw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ioswx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6olrd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snkdq")
+}],
+"loop": true,
+"name": &"Angry",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mp3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji3g5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34jmf")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iboxt"]
+radius = 37.4833
+
+[node name="Bee" type="AnimatableBody2D"]
+script = ExtResource("1_gw1gc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ylm0w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_by5vw")
+animation = &"Angry"
+autoplay = "Idle"
+
+[node name="Detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+shape = SubResource("CircleShape2D_iboxt")
+
+[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]

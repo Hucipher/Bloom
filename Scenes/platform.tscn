@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://f6ksvwohehye"]
+
+[ext_resource type="Texture2D" uid="uid://cqe3jkycegmlm" path="res://GrassField_ts-Sheet.png" id="1_0njyn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7u7ly"]
+size = Vector2(64, 8)
+
+[node name="Platform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0njyn")
+region_enabled = true
+region_rect = Rect2(31.9996, 31.8491, 64.1244, 18.069)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_7u7ly")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
