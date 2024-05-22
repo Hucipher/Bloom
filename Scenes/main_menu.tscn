@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://5gtwqncmh8m3"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Menu" type="CanvasLayer" parent="."]
+
+[node name="Credits" type="CanvasLayer" parent="."]

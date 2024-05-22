@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://qxrxd662enxv"]
+
+[ext_resource type="Script" path="res://Scripts/flower.gd" id="1_foj7j"]
+[ext_resource type="Texture2D" uid="uid://d0r4ophm1mopv" path="res://flower-Sheet.png" id="1_kviqt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qq37k"]
+atlas = ExtResource("1_kviqt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krgk2"]
+atlas = ExtResource("1_kviqt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qm2qy"]
+atlas = ExtResource("1_kviqt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pmmj1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qq37k")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krgk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qm2qy")
+}],
+"loop": true,
+"name": &"PickUp",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f558p"]
+radius = 5.0
+
+[node name="Flower" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_foj7j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5625, 0.5625)
+sprite_frames = SubResource("SpriteFrames_pmmj1")
+animation = &"PickUp"
+autoplay = "Idle"
+frame = 1
+frame_progress = 0.265756
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_f558p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

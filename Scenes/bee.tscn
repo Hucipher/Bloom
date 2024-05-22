@@ -1,46 +1,43 @@
-[gd_scene load_steps=12 format=3 uid="uid://ctg2c82o2270g"]
+[gd_scene load_steps=12 format=3 uid="uid://dlj6prmpw7ff"]
 
 [ext_resource type="Script" path="res://Scripts/bee.gd" id="1_gw1gc"]
 [ext_resource type="Texture2D" uid="uid://crpikbkimfyu8" path="res://Bee-Sheet.png" id="1_neqkj"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ylm0w"]
-radius = 9.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ioswx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8prl"]
 atlas = ExtResource("1_neqkj")
 region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6olrd"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4451a"]
 atlas = ExtResource("1_neqkj")
 region = Rect2(32, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_snkdq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdymm"]
 atlas = ExtResource("1_neqkj")
 region = Rect2(64, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6mp3q"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ugvb"]
 atlas = ExtResource("1_neqkj")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ji3g5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_du2iq"]
 atlas = ExtResource("1_neqkj")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_34jmf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hx4y"]
 atlas = ExtResource("1_neqkj")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_by5vw"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_q2ikx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ioswx")
+"texture": SubResource("AtlasTexture_h8prl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6olrd")
+"texture": SubResource("AtlasTexture_4451a")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_snkdq")
+"texture": SubResource("AtlasTexture_sdymm")
 }],
 "loop": true,
 "name": &"Angry",
@@ -48,36 +45,45 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6mp3q")
+"texture": SubResource("AtlasTexture_6ugvb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ji3g5")
+"texture": SubResource("AtlasTexture_du2iq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_34jmf")
+"texture": SubResource("AtlasTexture_5hx4y")
 }],
 "loop": true,
 "name": &"Idle",
 "speed": 8.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_iboxt"]
-radius = 37.4833
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1awii"]
+size = Vector2(15, 9)
 
-[node name="Bee" type="AnimatableBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_lptlv"]
+radius = 46.0435
+
+[node name="Bee" type="CharacterBody2D"]
+collision_mask = 4
 script = ExtResource("1_gw1gc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ylm0w")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_by5vw")
-animation = &"Angry"
+sprite_frames = SubResource("SpriteFrames_q2ikx")
+animation = &"Idle"
 autoplay = "Idle"
 
-[node name="Detection" type="Area2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 2.5)
+shape = SubResource("RectangleShape2D_1awii")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
-shape = SubResource("CircleShape2D_iboxt")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
-[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
+[node name="player_detection" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_detection"]
+shape = SubResource("CircleShape2D_lptlv")
+
+[connection signal="body_entered" from="player_detection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="player_detection" to="." method="_on_player_detection_body_exited"]
