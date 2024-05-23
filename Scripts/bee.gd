@@ -2,13 +2,14 @@ extends CharacterBody2D
 
 @onready var anim = $AnimatedSprite2D
 @onready var col = $player_detection/CollisionShape2D
+
 var chase = false
 var speed = 90
 
-func _process(delta):
+func _process(_delta):
 	if chase == true:
 		anim.play("Angry")
-		var player = $"../player"
+		var player = %player
 		var direction = (player.position - self.position).normalized()
 		if direction.x < 0:
 			anim.flip_h = false
@@ -21,8 +22,11 @@ func _process(delta):
 		anim.play("Idle")
 	move_and_slide()
 	
-func _on_player_detection_body_entered(body):
+func _on_player_detection_body_entered(_body):
 	chase = true
+	col.shape.radius = 150
 
-func _on_player_detection_body_exited(body):
+func _on_player_detection_body_exited(_body):
 	chase = false 
+	col.shape.radius = 50
+

@@ -1,7 +1,67 @@
-[gd_scene format=3 uid="uid://5gtwqncmh8m3"]
+[gd_scene load_steps=5 format=3 uid="uid://5gtwqncmh8m3"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_2cfuv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p17af"]
+bg_color = Color(0.887898, 0.466409, 0.28574, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c6s46"]
+bg_color = Color(0.887898, 0.466409, 0.28574, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l2ewf"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
 
 [node name="MainMenu" type="Node2D"]
+script = ExtResource("1_2cfuv")
 
 [node name="Menu" type="CanvasLayer" parent="."]
 
-[node name="Credits" type="CanvasLayer" parent="."]
+[node name="Title" type="Label" parent="Menu"]
+offset_left = 947.0
+offset_top = 15.0
+offset_right = 1132.0
+offset_bottom = 89.0
+theme_override_font_sizes/font_size = 46
+text = "BLOOM"
+
+[node name="Play" type="Button" parent="Menu"]
+offset_left = 20.0
+offset_top = 200.0
+offset_right = 220.0
+offset_bottom = 250.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_p17af")
+text = "Play"
+
+[node name="Quit" type="Button" parent="Menu"]
+offset_left = 20.0
+offset_top = 275.0
+offset_right = 220.0
+offset_bottom = 325.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_c6s46")
+text = "Quit"
+
+[node name="Game_made_by" type="Label" parent="Menu"]
+offset_top = 608.0
+offset_right = 1151.0
+offset_bottom = 647.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_l2ewf")
+text = "  A game made by Hucipher"
+vertical_alignment = 1
+
+[connection signal="pressed" from="Menu/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Menu/Quit" to="." method="_on_quit_pressed"]
