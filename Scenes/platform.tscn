@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://f6ksvwohehye"]
 
-[ext_resource type="Texture2D" uid="uid://cqe3jkycegmlm" path="res://GrassField_ts-Sheet.png" id="1_0njyn"]
+[ext_resource type="Texture2D" uid="uid://cqe3jkycegmlm" path="res://Bloom_Assets/Sprites/GrassField_ts-Sheet.png" id="1_0njyn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7u7ly"]
 size = Vector2(64, 8)

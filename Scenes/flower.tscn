@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://qxrxd662enxv"]
 
 [ext_resource type="Script" path="res://Scripts/flower.gd" id="1_foj7j"]
-[ext_resource type="Texture2D" uid="uid://d0r4ophm1mopv" path="res://flower-Sheet.png" id="1_kviqt"]
-[ext_resource type="AudioStream" uid="uid://daa7jy4klkima" path="res://Music/Item_pickup.wav" id="3_7ylqx"]
+[ext_resource type="Texture2D" uid="uid://d0r4ophm1mopv" path="res://Bloom_Assets/Sprites/flower-Sheet.png" id="1_kviqt"]
+[ext_resource type="AudioStream" uid="uid://daa7jy4klkima" path="res://Bloom_Assets/Music/Item_pickup.wav" id="3_7ylqx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qq37k"]
 atlas = ExtResource("1_kviqt")
@@ -41,21 +41,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_f558p"]
 radius = 5.0
 
-[sub_resource type="Animation" id="Animation_ml1sp"]
-resource_name = "pickup_sound"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PickUpSound:playing")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="Animation" id="Animation_dp0fn"]
 length = 0.001
 tracks/0/type = "value"
@@ -69,6 +54,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ml1sp"]
+resource_name = "pickup_sound"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PickUpSound:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k0v66"]

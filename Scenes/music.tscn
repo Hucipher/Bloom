@@ -1,8 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://db4eq1hhba7s1"]
 
-[ext_resource type="AudioStream" uid="uid://ccxkhecgesuvw" path="res://Music/Bloom_theme.mp3" id="1_2bnb8"]
+[ext_resource type="AudioStream" uid="uid://ccxkhecgesuvw" path="res://Bloom_Assets/Music/Bloom_theme.mp3" id="1_2bnb8"]
 
 [node name="Music" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_2bnb8")
 autoplay = true
+max_distance = 5000.0
 bus = &"Music"

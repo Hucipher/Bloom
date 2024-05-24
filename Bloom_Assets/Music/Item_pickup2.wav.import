@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://chp7n3pavio8o"
-path="res://.godot/imported/Item_pickup2.wav-afda052d818e48b4cdafe28baf79303d.sample"
+path="res://.godot/imported/Item_pickup2.wav-1ca010c32779c4bbaa97f862dd110200.sample"
 
 [deps]
 
-source_file="res://Music/Item_pickup2.wav"
-dest_files=["res://.godot/imported/Item_pickup2.wav-afda052d818e48b4cdafe28baf79303d.sample"]
+source_file="res://Bloom_Assets/Music/Item_pickup2.wav"
+dest_files=["res://.godot/imported/Item_pickup2.wav-1ca010c32779c4bbaa97f862dd110200.sample"]
 
 [params]
 

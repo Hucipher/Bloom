@@ -5,7 +5,7 @@ var flowers = 5
 @onready var win = $"../UI/Win"
 @onready var timer = $Timer
 @onready var player = $"../player"
-
+var bee = preload("res://Scenes/bee.tscn")
 func _ready():
 	label_flower.text = str(flowers)
 
@@ -17,13 +17,14 @@ func pick_flower():
 func count_flowers():
 	if flowers <= 0:
 		win.text = "YOU WIN!!!"
+		player.anim.play("Idle")
+		player.can_move = false
 		timer.start()
 
 func player_death():
 	player.can_move = false
 	
-func end_game():
-	pass
 
 func _on_timer_timeout():
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+

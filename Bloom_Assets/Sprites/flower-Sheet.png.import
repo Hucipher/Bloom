@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vkyrlcyshrtc"
-path="res://.godot/imported/Hero_ss-Sheet.png-5cab17b04a255cc353ec2bb2e4189067.ctex"
+uid="uid://d0r4ophm1mopv"
+path="res://.godot/imported/flower-Sheet.png-83ffc77c4548d0203e0888f641284209.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Hero_ss-Sheet.png"
-dest_files=["res://.godot/imported/Hero_ss-Sheet.png-5cab17b04a255cc353ec2bb2e4189067.ctex"]
+source_file="res://Bloom_Assets/Sprites/flower-Sheet.png"
+dest_files=["res://.godot/imported/flower-Sheet.png-83ffc77c4548d0203e0888f641284209.ctex"]
 
 [params]
 

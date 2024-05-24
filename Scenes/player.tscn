@@ -1,7 +1,7 @@
 [gd_scene load_steps=30 format=3 uid="uid://db286w3av1bar"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_7rivn"]
-[ext_resource type="Texture2D" uid="uid://vkyrlcyshrtc" path="res://Hero_ss-Sheet.png" id="1_tvht1"]
+[ext_resource type="Texture2D" uid="uid://vkyrlcyshrtc" path="res://Bloom_Assets/Sprites/Hero_ss-Sheet.png" id="1_tvht1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_welkn"]
 radius = 6.0
