@@ -13,7 +13,7 @@ config_version=5
 config/name="Bloom"
 run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://Bloom_Assets/Icons/icon.svg"
+config/icon="res://Bloom_Assets/Icons/bloom_icon.png"
 
 [audio]
 
